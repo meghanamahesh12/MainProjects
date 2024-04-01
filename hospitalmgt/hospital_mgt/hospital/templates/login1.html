@@ -1,0 +1,44 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Login</h2>
+    <form method="POST">
+         {% csrf_token %}
+         <label>Admin Name</label>
+         <input type="text" class="form-control" name="uname" />
+         <label>password</label>
+         <input type="password" class="form-control" name="pwd" />
+ 
+         <input type="submit" value="Login" class="form-control btn btn-primary" />
+     </form>
+ </div>
+
+{% if error == 'No' %}
+<script>
+    alert('Logged in successfully');
+    window.location = "{% url 'index.html' %}";
+</script>
+{% endif %}
+{% if error == "Invalid username or password." %}
+<script>
+    alert('Invalid username or password.');
+</script>
+{% endif %}
+{% if error == "Your account is not active." %}
+<script>
+    alert('Your account is not active.');
+</script>
+{% endif %}
+{% if error == "You are not authorized to login as staff." %}
+<script>
+    alert('You are not authorized to login as staff.');
+</script>
+{% endif %}
+
+{% endblock content %}
+{% include 'footer.html' %}
+
+
+

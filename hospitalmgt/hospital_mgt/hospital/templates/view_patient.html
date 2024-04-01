@@ -1,0 +1,31 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<div>
+    <h2>View_Patient</h2>
+    <table id="example" class="table table-hover" style="width:100%;">
+        <thead>
+            <th>Patientid</th>
+            <th>name</th>
+            <th>gender</th>
+            <th>mobile</th>
+            <th>address</th>
+            <td>Delete</td>    
+        </thead>
+        <tbody>
+            {% for i in doc %}
+            <tr>
+                <td>{{i.id}}</td>  
+                <td>{{i.name}}</td>
+                <td>{{i.gender}}</td> 
+                <td>{{i.mobile}}</td>  
+                <td>{{i.address}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+{% include 'footer.html' %}
+
+
